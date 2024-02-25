@@ -1,0 +1,31 @@
+{
+    "users": [
+      {
+        "companycode": "1",
+        "companyname": "ABC1",
+        "description": "This is a CRUD_1",
+        "country": "Sri Lanka",
+        "currency": "Rupees",
+        "Address01": "No1",
+        "Address02": "No2"
+      },
+      {
+        "companycode": "2",
+        "companyname": "ABC2",
+        "description": "This is a CRUD_2",
+        "country": "India",
+        "currency": "Rupees",
+        "Address01": "No1",
+        "Address02": "No2"
+      },
+      {
+        "companycode": "3",
+        "companyname": "ABC3",
+        "description": "This is a CRUD_3",
+        "country": "Australia",
+        "currency": "USD",
+        "Address01": "No1",
+        "Address02": "No2"
+      }
+    ]
+  }

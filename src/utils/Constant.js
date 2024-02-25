@@ -1,0 +1,1 @@
+export const CreateCompany_URL = '/createcompany';
