@@ -51,13 +51,8 @@ export const CreateCompany = () => {
         <div className='form-part1'>
             <label>
           Company Code
-          {/* <input type="text" id="companycode"  className="companyCode" name='companycode' value={companycode} onChange={handleInputChange}/> */}
           <input type="text" id="companycode" name="companycode" 
           value={companycode} onChange={handleInputChange} />
-
-         {/* // onChange = {e => companycodechange( e.target.value) */}
-          {/* <input type="text" name='companycode' className="companyCode" 
-          onChange = {e => setValues({...values, companycode: e.target.value})}/> */}
           {/* {formErrors.companyCode && <span className='error'>{formErrors.companyCode}</span>} */}
           </label>
         </div>
@@ -69,9 +64,6 @@ export const CreateCompany = () => {
           Company Name
           <input type="text" id="companyname" className='companyName' name="companyname" 
           value={companyname} onChange={handleInputChange}/>
-          {/* onChange = {e => companynamechange(e.target.value)} */}
-          {/* <input type="text" name="companyname" className='companyName'  
-          onChange = {e => setValues({...values, companyname: e.target.value})}/> */}
           {/* {formErrors.companyName && <span className="error">{formErrors.companyName}</span>} */}
         </label>
         </div>
@@ -83,9 +75,6 @@ export const CreateCompany = () => {
           Description
           <input type="text" id="description" className='description' name="description" placeholder='optional' 
           value={description} onChange={handleInputChange} />
-          {/* onChange = {e => descriptionchange(e.target.value)} /> */}
-          {/* <input type="text" name="description" className='description' placeholder='optional' 
-          onChange = {e => setValues({...values, description: e.target.value})} /> */}
           {/* {formErrors.description && <span className="error">{formErrors.description}</span>} */}
         </label>
         </div>
@@ -97,9 +86,6 @@ export const CreateCompany = () => {
           Country
           <select id="country" name="country" 
           value={country}  onChange={handleInputChange}>
-          {/* onChange = {e => countrychange(e.target.value)}> */}
-          {/* <select name="country"  
-          onChange = {e => setValues({...values, country: e.target.value})}> */}
            <option value="">Select Country</option>
            <option value="Sri Lanka">Sri Lanka</option>
             <option value="USA">USA</option>                   
@@ -114,9 +100,6 @@ export const CreateCompany = () => {
           Currency
           <select name="currency" id="currency" 
           value={currency} onChange={handleInputChange}>
-           {/* onChange = {e => currencychange(e.target.value)}> */}
-          {/* <select name="currency" 
-           onChange = {e => setValues({...values, currency: e.target.value})}> */}
           <option value="">Select Currency</option>
             <option value="Rupees">Rupees</option>
             <option value="USD">USD</option>
@@ -131,9 +114,6 @@ export const CreateCompany = () => {
           Address 01
           <input type="text" id="address01" name="address01" 
           value={address01} onChange={handleInputChange}/>
-          {/* onChange = {e => address01change(e.target.value)} /> */}
-          {/* <input type="text" name="address01" 
-          onChange = {e => setValues({...values, address01: e.target.value})} /> */}
           {/* {formErrors.address01 && <span className='error'>{formErrors.address01}</span>} */}
         </label>
         </div>
@@ -145,9 +125,6 @@ export const CreateCompany = () => {
           Address 02
           <input type="text" id="address02" name="address02" placeholder="optional " 
           value={address02} onChange={handleInputChange}/>
-          {/* onChange = {e => address02change(e.target.value)} /> */}
-          {/* <input type="text" name="address02" placeholder="optional "
-          onChange = {e => setValues({...values, address02: e.target.value})} /> */}
         </label>
         </div>
         
@@ -157,9 +134,6 @@ export const CreateCompany = () => {
         <label>
         <input type="checkbox" name="defaultCompany" id="defaultCompany" 
         value={defaultCompany} onChange={handleInputChange}/>
-          {/* onChange = {e => defaultCompanychange(e.target.value)} /> */}
-          {/* <input type="checkbox" id="defaultCompany" name="defaultCompany" 
-          onChange = {e => setValues({...values, defaultCompany: e.target.value})} /> */}
          Default Company
         </label><br />
          </div>
@@ -167,7 +141,6 @@ export const CreateCompany = () => {
          <br/>
 
         <div className='button'>
-        {/* <Link to={`/${user.id}`} className='button_create'>Create</Link> */}
         <button type="submit" className="create-button">Create</button>
         </div>
         <div className='btn_back_createcompany'>

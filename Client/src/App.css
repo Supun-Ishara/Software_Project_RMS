@@ -240,12 +240,6 @@ body{
    background-color: #e6e0e0;
 }
 
-/* .btn :hover{
-   background-color: #cdc8c8;
-   border: 1px solid black;
-   padding: 5px 5px;
-} */
-
 .btn-delete{
   margin-left: 30px;
   cursor: pointer;
@@ -281,79 +275,6 @@ body{
      /*-----Read-----*/
      /*-----Read-----*/
 
-/* .read1{
-  background-color: #f3ece5;
-  margin-left: 350px;
-  margin-top: -650px;
-  margin-right: 400px;
-  padding-left: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  font-family: 'Roboto', sans-serif;
-  border: 3px solid #b5a28c;
-  border-radius: 5px;
-  width: 70%;
-
-}
-
-.read_description {
-   margin-left: -100px;
-  margin-bottom: 50px; 
-  font-size: 25px;
-  text-align: center;
-}
-
-.detail1{
-  text-align: left;
-}
-
-.detail2{
-  text-align: left;
-
-}
-.detail3{
-  text-align: left;
-}
-.detail4{
-  text-align: left;
-}
-.detail5{
-  text-align: left;
-}
-.detail6{
-  text-align: left;
-}
-.detail7{
-  text-align: left;
-}
-.detail8{
-  text-align: left;
-}
-
-
-.read-button1{
-  margin-left: -80px;
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px 12px 20px;
-  text-decoration: none;
-  border: 1px solid ;
-  border-radius: 5px;
-}
-
-.read-button2{
-  margin-left: 40px;
-  background-color: #28a745;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border: 1px solid ;
-  border-radius: 5px;
-}
-.read-button1:hover,
-.read-button2:hover{
-  color: #000;
-} */
 
 .form-container-read{
   margin-left:350px;
@@ -411,19 +332,6 @@ body{
   margin-right: 30px;
 }
 
-/* .save-button2{
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 4px 8px;
-  text-decoration: none;
-  border: 1px solid ;
-  border-radius: 1px;
-  display: flex; 
-  align-items: center;
-  margin-right: 30px;
-} */
-
 .btn-delete-read{
   cursor: pointer;
   background-color: #ffffff;
@@ -437,7 +345,6 @@ body{
   margin-right: 35px;
 }
 
-/* .btn-btn-success2:hover, */
 .btn2:hover,
 .save-button2:hover,
 .btn-delete-read:hover
@@ -452,7 +359,6 @@ body{
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 15px;
-  /* margin-bottom: -100px; */
   padding-bottom: 29px;
   padding-left: 50px;
   border: 1px solid #d8cabc;
@@ -460,7 +366,6 @@ body{
 }
 
 .form-container-read label{
-  /*display: inline-block;*/
   width:50px;
   margin-bottom: 0px;
   font-family: 'Roboto', sans-serif;
@@ -474,7 +379,6 @@ body{
   width: 600px;
   padding: 5px;
   margin-bottom: 0px;
-  /* margin-left: 100px; */
   border: 2px solid #b6b6b6;
   background-color: #ffffff;
   border-radius: 5px;
@@ -551,7 +455,6 @@ body{
 .btn_btn-back-read:hover{
    background-color: #1d1dd2;
 }
-
 
     
       /*-----CompanyOverview-----*/
@@ -645,28 +548,6 @@ body{
 
 }
 
-/* .btn1:hover{
-  background-color: #e6e0e0;
-} */
-/* .save-button1{
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 4px 8px;
-  text-decoration: none;
-  border: 1px solid ;
-  border-radius: 1px;
-  display: flex; 
-  align-items: center;
-} */
-/* .save-button1:hover{
-  background-color: #e6e0e0;
-} */
-/* .btn-btn-sm-btn-danger1{
-  margin-right: 20px;
-  cursor: pointer;
-} */
-
 .form-container-update h3{
   text-align: center;
 }
@@ -677,7 +558,6 @@ body{
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 15px;
-  /* margin-bottom: -100px; */
   padding-bottom: 4px;
   padding-left: 50px;
   border: 1px solid #d8cabc;
@@ -685,7 +565,6 @@ body{
 }
 
 .form-container-update label{
-  /*display: inline-block;*/
   width:50px;
   margin-bottom: 0px;
   font-family: 'Roboto', sans-serif;
@@ -699,7 +578,6 @@ body{
   width: 600px;
   padding: 5px;
   margin-bottom: 0px;
-  /* margin-left: 100px; */
   border: 2px solid #b6b6b6;
   background-color: #ffffff;
   border-radius: 5px;

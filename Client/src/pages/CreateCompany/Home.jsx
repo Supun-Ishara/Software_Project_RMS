@@ -13,14 +13,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
         useEffect(() =>{
             dispatch(loadUsers());
-            // props.loaduser();
         }, [])
 
     const handleDelete = (id) => {
         if(window.confirm("Would you like to delete?")){
             dispatch(deleteUser(id))
-        // props.removeuser(code);
-        // props.loaduser();
         toast.success('Çompany delete successfully.')
         }
     };
@@ -52,7 +49,6 @@ import { useDispatch, useSelector } from 'react-redux';
     <tbody>
         {
             users && users.map((user) => (
-            // props.user.userlist && props.user.userlist.map(item =>
                 <tr key={user.id}>
                     <td>      
                     <Link to={`/read/${user.id}`} className='btn-btn-sm-btn-info-me-2'><FaInfo /> </Link> 
@@ -75,17 +71,4 @@ import { useDispatch, useSelector } from 'react-redux';
 
 }
 
-// const mapStateToProps = (state) => {
-//     return{
-//         user: state.user
-//     }
-// }
-// const mapDispatchToProps = (dispatch) => {
-//     return{
-//         loaduser:() =>dispatch(FetchUserList()),
-//         removeuser:(code)=>dispatch(Removeuser(code))
-//     }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps) (Home);
 export default Home;

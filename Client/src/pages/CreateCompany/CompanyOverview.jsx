@@ -60,10 +60,6 @@ export const CompanyOverview = () => {
 
   /*delete */
 
-  // const handleDelete = (code) => {
-  //   // Implement your delete logic here
-  //   console.log(`Deleting company with code: ${code}`);
-  // }
 const handleDelete = (id) => {
     if(window.confirm("Would you like to delete?")){
         dispatch(deleteUser(id))
@@ -83,7 +79,6 @@ const handleDelete = (id) => {
         <button className='btn1'><FaEdit /></button>
         <button className='save-button1' onClick={handleSubmit}><FaSave /></button>
         <button className='btn-delete-update' onClick={() => handleDelete(id)} ><FaTrash /></button> 
-        {/* <button className='btn-delete-update' onClick={() => handleDelete(id)}><FaTrash /></button> */}
       </div>
       <div className="updated-form">
         <h3>General</h3>

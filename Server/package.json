@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server -p 3005 -w database.json"
+    "start": "json-server -p 3000 -w database.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "json-server": "^1.0.0-alpha.23"
+
   }
 }
