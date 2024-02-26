@@ -9,11 +9,10 @@
       "Address01": "No1",
       "Address02": "No2",
       "defaultCompany": true,
-      "id": "51e7",
-      "address01": "tg"
+      "id": "51e7"
     },
     {
-      "companycode": "24",
+      "companycode": "2",
       "companyname": "ABC2",
       "description": "This is a CRUD_2",
       "country": "USA",
@@ -21,11 +20,10 @@
       "Address01": "No3",
       "Address02": "No4",
       "defaultCompany": false,
-      "id": "fefa",
-      "address01": "gh"
+      "id": "fefa"
     },
     {
-      "companycode": "161",
+      "companycode": "16",
       "companyname": "AFF1",
       "description": "This is a CRUD_8",
       "country": "USA",
@@ -39,15 +37,15 @@
       "undefined": "This is a CRUD_"
     },
     {
-      "id": "c637",
-      "companycode": "493",
-      "companyname": "vffd",
-      "description": "ss",
-      "country": "Sri Lanka",
+      "companycode": "4",
+      "companyname": "ABC4",
+      "description": "This is a CRUD_4",
+      "country": "USA",
       "currency": "USD",
-      "address01": "w3",
-      "address02": "r4",
-      "defaultCompany": "false"
+      "Address01": "No7",
+      "Address02": "No8",
+      "defaultCompany": false,
+      "id": "e45d"
     }
   ]
 }
