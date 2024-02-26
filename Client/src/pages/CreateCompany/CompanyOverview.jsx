@@ -19,7 +19,7 @@ export const CompanyOverview = () => {
       defaultCompany: false
     });
 
-    const [error, setError] = useState("");
+   // const [error, setError] = useState("");
     let {id} = useParams();
     const {user} = useSelector((state) => state.data);
 
@@ -44,18 +44,23 @@ export const CompanyOverview = () => {
   }
  
 
-  const handleSubmit = (e) => {
+ const handleSubmit = (e) => {
     e.preventDefault();
-    if(!companycode || !companyname || !country || !currency || !address01){
-            setError("Please input all input field");
+    if(!companycode){
+            alert("Please fill out the Company Code fields.");
+    } else if(!companyname){
+      alert("Please fill out Company the Name fields.");
+    } else if(!country){
+      alert("Please fill out Country the fields.");
+    } else if(!currency){
+      alert("Please fill out Currency the fields.");
+    }  else if(!address01){
+      alert("Please fill out the Address 01 fields.");
     } else {
             dispatch(getUserObj(state, id));
             navigate('/');
-            setError("");
+            // setError("");
     }
-    //const userobj = {companycode, companyname, description, country, currency, address01, address02, defaultCompany };
-    // dispatch(FunctionAddUser(userobj));
-    // navigate('/');
   };
 
   /*delete */
