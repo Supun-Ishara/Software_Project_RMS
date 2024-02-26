@@ -43,13 +43,13 @@ body{
   max-width: 70%;
   padding-left: 50px;
   max-height: 100vh;
-  border: 3px solid #b5a28c;
+  border: 3px solid #d4c8b9;
   border-radius: 5px;
 }
 
 .form-name{
   color: rgb(0, 0, 0);
-  background-color: #b5a28c;
+  background-color: #d4c8b9;
   border-radius: 5px;
   text-align: left;
   padding-left: 20px;
@@ -142,7 +142,7 @@ body{
   width: 100px;
   padding-left: 1000px;
   padding: 10px;
-  background-color: #b5a28c;
+  background-color: #d4c8b9;
   font-weight: bold;
   font-size: 15px;
   color: #ffffff;
@@ -201,7 +201,7 @@ body{
 }
 .table-name{
   color: rgb(0, 0, 0);
-  background-color: #b5a28c;
+  background-color: #d4c8b9;
   border-radius: 5px;
   text-align: left;
   margin-top: 20px;
@@ -263,7 +263,7 @@ body{
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  background-color: #b5a28c;
+  background-color: #d4c8b9;
 }
 
 .main-table td{
@@ -281,13 +281,13 @@ body{
   margin-top: -660px;
   width: 70%;
   height: 95vh;
-  border: 3px solid #b5a28c;
+  border: 3px solid #d4c8b9;
   border-radius: 5px;
 }
 
 .form-name-read{
   color: rgb(0, 0, 0);
-  background-color: #b5a28c;
+  background-color: #d4c8b9;
   border-radius: 5px;
   text-align: left;
   margin-top: 20px;
@@ -472,7 +472,7 @@ body{
 
 .form-name-uptaded{
   color: rgb(0, 0, 0);
-  background-color: #b5a28c;
+  background-color: #d4c8b9;
   border-radius: 5px;
   text-align: left;
   margin-top: 20px;
