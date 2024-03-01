@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link, useNavigate, useParams} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserObj, updateUser } from '../../store/Action';
+import { getUserObj, updateUser, fetchCountries, fetchCurrencies,  } from '../../store/Action';
 import { deleteUser } from '../../store/Action';
 import { FaEdit, FaTrash, FaSave } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,7 +19,7 @@ export const CompanyOverview = () => {
       defaultCompany: false
     });
 
-   // const [error, setError] = useState("");
+    // const [error, setError] = useState("");
     let {id} = useParams();
     const {user} = useSelector((state) => state.data);
 
@@ -38,13 +38,25 @@ export const CompanyOverview = () => {
     }
   }, [user]);
 
+  /*country & currency */
+
+  const countries = useSelector(state => state.data.countries);
+  const currencies = useSelector(state => state.data.currencies);
+
+  useEffect(() => {
+    dispatch(fetchCountries());
+    dispatch(fetchCurrencies());
+  }, [dispatch]);
+
+  /*country & currency */
+
   const handleInputChange = (e) =>{
     let{name, value} = e.target;
     setState({...state, [name]:value});
   }
  
 
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if(!companycode){
             alert("Please fill out the Company Code fields.");
@@ -118,8 +130,11 @@ const handleDelete = (id) => {
               Country
               <select name="country" id="country" value={country || ""}  onChange={handleInputChange}>
                 <option value="">Select Country</option>
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="USA">USA</option>
+                {countries.map(country => (
+                  <option key={country.id} value={country.Cname}>{country.Cname}</option>
+                ))}
+                {/* <option value="Sri Lanka">Sri Lanka</option>
+                <option value="USA">USA</option> */}
               </select>
             </label>
           </div>
@@ -129,8 +144,11 @@ const handleDelete = (id) => {
               Currency
               <select name="currency" id="currency" value={currency || ""} onChange={handleInputChange}>
                 <option value="">Select Currency</option>
-                <option value="Rupees">Rupees</option>
-                <option value="USD">USD</option>
+                {currencies.map(currency => (
+                  <option key={currency.id} value={currency.C_name}>{currency.C_name}</option>
+                ))}
+                {/* <option value="Rupees">Rupees</option>
+                <option value="USD">USD</option> */}
               </select>
             </label>
           </div>

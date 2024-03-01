@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
-import { useDispatch } from 'react-redux';
-import { addUser } from '../../store/Action';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCountries, fetchCurrencies, addUser } from '../../store/Action';
+// import Country_Name from './Country';
 
 export const CreateCompany = () => {
   const [state, setState] = useState({
@@ -22,8 +23,23 @@ export const CreateCompany = () => {
 
   const {companycode, companyname, description, country, currency, address01, address02, defaultCompany } = state;
 
+    /*country & currency */
+
+    const countries = useSelector(state => state.data.countries);
+    const currencies = useSelector(state => state.data.currencies);
+  
+    useEffect(() => {
+      dispatch(fetchCountries());
+      dispatch(fetchCurrencies());
+    }, [dispatch]);
+  
+    /*country & currency */
+
   const handleInputChange = (e) =>{
     let{name, value} = e.target;
+  //  if (name === "companycode" && value.length > 8) {
+  //   alert("Character should be less than 9");
+  //  }
     setState({...state, [name]:value});
   }
  
@@ -46,6 +62,8 @@ const handleSubmit = (e) => {
             // setError("");
     }
   };
+  
+
 
   return (
     
@@ -60,7 +78,7 @@ const handleSubmit = (e) => {
             <label>
           Company Code
           <input type="text" id="companycode" name="companycode" 
-          value={companycode} onChange={handleInputChange} />
+          value={companycode} onChange={handleInputChange}  maxLength={8}/>
           {/* {formErrors.companyCode && <span className='error'>{formErrors.companyCode}</span>} */}
           </label>
         </div>
@@ -92,12 +110,17 @@ const handleSubmit = (e) => {
         <div className='form-part4'>
         <label>
           Country
-          <select id="country" name="country" 
+
+
+         <select id="country" name="country"  
           value={country}  onChange={handleInputChange}>
            <option value="">Select Country</option>
-           <option value="Sri Lanka">Sri Lanka</option>
-            <option value="USA">USA</option>                   
-          </select>             
+           {countries.map(country => (
+                  <option key={country.id} value={country.Cname}>{country.Cname}</option>
+                ))}
+           {/* <option value="Sri Lanka">Sri Lanka</option>
+            <option value="USA">USA</option>                    */}
+          </select>   
         </label>
         </div>
         
@@ -106,11 +129,15 @@ const handleSubmit = (e) => {
         <div className='form-part5'>
         <label>
           Currency
+
           <select name="currency" id="currency" 
           value={currency} onChange={handleInputChange}>
           <option value="">Select Currency</option>
-            <option value="Rupees">Rupees</option>
-            <option value="USD">USD</option>
+          {currencies.map(currency => (
+                  <option key={currency.id} value={currency.C_name}>{currency.C_name}</option>
+                ))}
+            {/* <option value="Rupees">Rupees</option>
+            <option value="USD">USD</option> */}
           </select>
         </label>
         </div>

@@ -1,12 +1,15 @@
-// import createSlice from "@reduxjs/toolkit";
-//import { Action } from "history"
-//import { ADD_USER, DELETE_USER, FAIL_REQUEST, GET_USER_LIST, GET_USER_OBJ, MAKE_REQUEST, UPDATE_USER } from "./ActionType"
 import { type } from "@testing-library/user-event/dist/type";
 import * as types from "./ActionType";
 
 const initialState={
     users:[],
     user:{},
+
+    /*country & currency */
+    countries: [],
+    currencies: [],
+    /*country & currency */
+
     loading: false
 };
 
@@ -38,9 +41,30 @@ const Reducer = (state = initialState, action) => {
                 loading:false,
             }
 
+            /*country & currency */
+
+            case types.FETCH_COUNTRIES_SUCCESS:
+                return {
+                  ...state,
+                  countries: action.payload,
+                  loading: false,
+                };
+              case types.FETCH_CURRENCIES_SUCCESS:
+                return {
+                  ...state,
+                  currencies: action.payload,
+                  loading: false,
+                };              
+            
+            /*country & currency */
+
         default:
             return state;
     }
+
+    // switch(action.type){
+
+    // }
 };
 
 export default Reducer;
