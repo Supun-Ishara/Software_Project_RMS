@@ -65,6 +65,17 @@
       "address01": "ghg",
       "address02": "nh",
       "defaultCompany": "false"
+    },
+    {
+      "id": "07e9",
+      "companycode": "43",
+      "companyname": "sdd",
+      "description": "fb",
+      "country": "Sri Lanka",
+      "currency": "AUD",
+      "address01": "fg",
+      "address02": "foo",
+      "defaultCompany": "false"
     }
   ],
   "Country": [

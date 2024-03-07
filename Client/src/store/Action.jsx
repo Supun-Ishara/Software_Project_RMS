@@ -46,13 +46,11 @@ export const fetchCurrenciesSuccess = (currencies) => ({
 
 export const loadUsers = () => {
   return function (dispatch) {
-    axios
-      .get(`${process.env.REACT_APP_API}`)
-      .then((resp) => {
-        console.log("resp", resp);
-        dispatch(getUsers(resp.data));
-      })
-      .catch((error) => console.log(error));
+    axios.get(`${process.env.REACT_APP_API}`).then((resp) => {
+      // console.log("resp", resp);
+      dispatch(getUsers(resp.data));
+    })
+     .catch((error) => console.log(error));
   };
 };
 
@@ -61,7 +59,7 @@ export const deleteUser = (id) => {
     axios
       .delete(`${process.env.REACT_APP_API}/${id}`)
       .then((resp) => {
-        console.log("resp", resp);
+       // console.log("resp", resp);
         dispatch(userDeleted());
         dispatch(loadUsers());
       })
@@ -74,7 +72,7 @@ export const addUser = (user) => {
     axios
       .post(`${process.env.REACT_APP_API}`, user)
       .then((resp) => {
-        console.log("resp", resp);
+       // console.log("resp", resp);
         dispatch(userAdded());
         dispatch(loadUsers());
       })
@@ -87,7 +85,7 @@ export const updateUser = (id) => {
     axios
       .get(`${process.env.REACT_APP_API}/${id}`)
       .then((resp) => {
-        console.log("resp", resp);
+      //  console.log("resp", resp);
         dispatch(userUpdated(resp.data));
       })
       .catch((error) => console.log(error));
@@ -99,7 +97,7 @@ export const getUserObj = (user, id) => {
     axios
       .put(`${process.env.REACT_APP_API}/${id}`, user)
       .then((resp) => {
-        console.log("resp", resp);
+      //  console.log("resp", resp);
         dispatch(userGetObj());
       })
       .catch((error) => console.log(error));
@@ -111,7 +109,7 @@ export const fetchDataSuccess = (id) => {
     axios
       .get(`${process.env.REACT_APP_API}/${id}`)
       .then((resp) => {
-        console.log("resp", resp);
+      //  console.log("resp", resp);
         dispatch(userFetchedData(resp.data));
       })
       .catch((error) => console.log(error));
@@ -119,7 +117,6 @@ export const fetchDataSuccess = (id) => {
 };
 
 /*country & currency */
-
 export const fetchCountries = () => {
   return function (dispatch) {
     axios
@@ -141,5 +138,4 @@ export const fetchCurrencies = () => {
       .catch((error) => console.log(error));
   };
 };
-
 /*country & currency */

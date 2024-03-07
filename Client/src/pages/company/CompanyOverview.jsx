@@ -8,11 +8,8 @@ import {
   fetchCurrencies,
 } from "../../store/Action";
 import { deleteUser } from "../../store/Action";
-// import { FaEdit, FaTrash, FaSave } from "react-icons/fa";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-export const NoAccessCompanyOverview = ({
+export const CompanyOverview = ({
   FaEdit,
   FaTrash,
   FaSave,
@@ -34,9 +31,6 @@ export const NoAccessCompanyOverview = ({
   const { user } = useSelector((state) => state.data);
   let dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { FaEdit, FaTrash, FaSave, FontAwesomeIcon, faPlus } = props.iconSet;
-
-  const [editMode, setEditMode] = useState(false);
 
   const {
     companycode,
@@ -51,7 +45,7 @@ export const NoAccessCompanyOverview = ({
 
   useEffect(() => {
     dispatch(updateUser(id));
-  }, []);
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (user) {
@@ -59,7 +53,6 @@ export const NoAccessCompanyOverview = ({
     }
   }, [user]);
 
-  /*country & currency */
   const countries = useSelector((state) => state.data.countries);
   const currencies = useSelector((state) => state.data.currencies);
 
@@ -67,7 +60,6 @@ export const NoAccessCompanyOverview = ({
     dispatch(fetchCountries());
     dispatch(fetchCurrencies());
   }, [dispatch]);
-  /*country & currency */
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -104,16 +96,15 @@ export const NoAccessCompanyOverview = ({
       <div className="form-name-uptaded">
         <div className="Companyoverview_description">Company</div>
 
-        <Link to="/create" className="btn-btn-success2">
-          <FontAwesomeIcon icon={faPlus} className="me-12" />
+        <Link to="/create" className="btn-btn-success1">
+          <FontAwesomeIcon icon={faPlus} className="me-11" />
         </Link>
-
+        <button className="btn1">
+          <FaEdit />
+        </button>
         <button className="save-button1" onClick={handleSubmit}>
           <FaSave />
         </button>
-        <Link to={"/overview/${user.id}"} className="btn1">
-          <FaEdit />
-        </Link>
         <button className="btn-delete-update" onClick={() => handleDelete(id)}>
           <FaTrash />
         </button>
@@ -131,8 +122,7 @@ export const NoAccessCompanyOverview = ({
                   className="companyCode"
                   name="companycode"
                   value={companycode || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  onChange={handleInputChange}
                 />
               </label>
             </div>
@@ -146,8 +136,7 @@ export const NoAccessCompanyOverview = ({
                   className="companyName"
                   name="companyname"
                   value={companyname || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  onChange={handleInputChange}
                 />
               </label>
             </div>
@@ -162,8 +151,7 @@ export const NoAccessCompanyOverview = ({
                   name="description"
                   placeholder="optional"
                   value={description || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  onChange={handleInputChange}
                 />
               </label>
             </div>
@@ -175,8 +163,7 @@ export const NoAccessCompanyOverview = ({
                   name="country"
                   id="country"
                   value={country || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  onChange={handleInputChange}
                 >
                   <option value="">Select Country</option>
                   {countries.map((country) => (
@@ -195,8 +182,7 @@ export const NoAccessCompanyOverview = ({
                   name="currency"
                   id="currency"
                   value={currency || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  onChange={handleInputChange}
                 >
                   <option value="">Select Currency</option>
                   {currencies.map((currency) => (
@@ -216,8 +202,7 @@ export const NoAccessCompanyOverview = ({
                   name="address01"
                   id="address01"
                   value={address01 || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  onChange={handleInputChange}
                 />
               </label>
             </div>
@@ -231,8 +216,7 @@ export const NoAccessCompanyOverview = ({
                   name="address02"
                   placeholder="optional "
                   value={address02 || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  onChange={handleInputChange}
                 />
               </label>
             </div>
@@ -243,9 +227,8 @@ export const NoAccessCompanyOverview = ({
                   type="checkbox"
                   name="defaultCompany"
                   id="defaultCompany"
-                  value={defaultCompany || ""}
-                  onChange={editMode ? handleInputChange : null}
-                  readOnly={!editMode}
+                  checked={defaultCompany}
+                  onChange={handleInputChange}
                 />
                 Default Company
               </label>
@@ -259,4 +242,4 @@ export const NoAccessCompanyOverview = ({
   );
 };
 
-export default NoAccessCompanyOverview;
+export default CompanyOverview;

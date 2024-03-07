@@ -1,17 +1,13 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-// import { FaInfo, FaEdit, FaTrash } from "react-icons/fa";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
 import { deleteUser, loadUsers } from "../../store/Action";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-//import {filteredUsers}
 
 export const Home = ({ FaInfo, FaEdit, FaTrash, FontAwesomeIcon, faPlus }) => {
   let dispatch = useDispatch();
   const { users } = useSelector((state) => state.data);
-//   const { FaInfo, FaEdit, FaTrash, FontAwesomeIcon, faPlus } = iconSet;
 
   useEffect(() => {
     dispatch(loadUsers());
@@ -23,10 +19,6 @@ export const Home = ({ FaInfo, FaEdit, FaTrash, FontAwesomeIcon, faPlus }) => {
       toast.success("Çompany delete successfully.");
     }
   };
-
-  //     const filteredUsers = users.filter((user) =>
-  //     user.companycode.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
 
   return (
     <div className="Table1">

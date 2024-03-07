@@ -45,9 +45,6 @@ export const CreateCompany = () => {
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
-    //  if (name === "companycode" && value.length > 8) {
-    //   alert("Character should be less than 9");
-    //  }
     setState({ ...state, [name]: value });
   };
 
@@ -66,7 +63,6 @@ export const CreateCompany = () => {
     } else {
       dispatch(addUser(state));
       navigate("/");
-      // setError("");
     }
   };
 
@@ -86,7 +82,6 @@ export const CreateCompany = () => {
                 onChange={handleInputChange}
                 maxLength={8}
               />
-              {/* {formErrors.companyCode && <span className='error'>{formErrors.companyCode}</span>} */}
             </label>
           </div>
 
@@ -103,7 +98,6 @@ export const CreateCompany = () => {
                 value={companyname}
                 onChange={handleInputChange}
               />
-              {/* {formErrors.companyName && <span className="error">{formErrors.companyName}</span>} */}
             </label>
           </div>
 
@@ -121,7 +115,6 @@ export const CreateCompany = () => {
                 value={description}
                 onChange={handleInputChange}
               />
-              {/* {formErrors.description && <span className="error">{formErrors.description}</span>} */}
             </label>
           </div>
 
@@ -142,8 +135,6 @@ export const CreateCompany = () => {
                     {country.Cname}
                   </option>
                 ))}
-                {/* <option value="Sri Lanka">Sri Lanka</option>
-            <option value="USA">USA</option>                    */}
               </select>
             </label>
           </div>
@@ -165,8 +156,6 @@ export const CreateCompany = () => {
                     {currency.C_name}
                   </option>
                 ))}
-                {/* <option value="Rupees">Rupees</option>
-            <option value="USD">USD</option> */}
               </select>
             </label>
           </div>
@@ -183,7 +172,6 @@ export const CreateCompany = () => {
                 value={address01}
                 onChange={handleInputChange}
               />
-              {/* {formErrors.address01 && <span className='error'>{formErrors.address01}</span>} */}
             </label>
           </div>
 
