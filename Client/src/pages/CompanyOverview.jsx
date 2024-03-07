@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getUserObj,
   updateUser,
   fetchCountries,
   fetchCurrencies,
-} from "../../store/Action";
-import { deleteUser } from "../../store/Action";
+} from "../store/Action";
+import { deleteUser } from "../store/Action";
 
 export const CompanyOverview = ({
   FaEdit,
@@ -16,6 +16,7 @@ export const CompanyOverview = ({
   FontAwesomeIcon,
   faPlus,
 }) => {
+  const [editable, setEditable] = useState(false); // State to control edit mode
   const [state, setState] = useState({
     companycode: "",
     companyname: "",
@@ -29,8 +30,11 @@ export const CompanyOverview = ({
 
   let { id } = useParams();
   const { user } = useSelector((state) => state.data);
+  const countries = useSelector((state) => state.data.countries);
+  const currencies = useSelector((state) => state.data.currencies);
   let dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     companycode,
@@ -45,16 +49,15 @@ export const CompanyOverview = ({
 
   useEffect(() => {
     dispatch(updateUser(id));
-  }, [dispatch, id]);
+    const searchParams = new URLSearchParams(location.search);
+    setEditable(searchParams.get("edit") === "true");
+  }, [dispatch, id, location.search]);
 
   useEffect(() => {
     if (user) {
       setState({ ...user });
     }
   }, [user]);
-
-  const countries = useSelector((state) => state.data.countries);
-  const currencies = useSelector((state) => state.data.currencies);
 
   useEffect(() => {
     dispatch(fetchCountries());
@@ -99,13 +102,28 @@ export const CompanyOverview = ({
         <Link to="/create" className="btn-btn-success1">
           <FontAwesomeIcon icon={faPlus} className="me-11" />
         </Link>
-        <button className="btn1">
-          <FaEdit />
-        </button>
+
+        {editable ? (
+          <>
+            <button className="btn1">
+              <FaEdit onClick={() => setEditable(false)} />
+            </button>
+          </>
+        ) : (
+          <button className="btn1" onClick={() => setEditable(true)}>
+            <FaEdit />
+          </button>
+        )}
+
         <button className="save-button1" onClick={handleSubmit}>
           <FaSave />
         </button>
-        <button className="btn-delete-update" onClick={() => handleDelete(id)}>
+
+        <button
+          className="btn-delete-update"
+          onClick={() => handleDelete(id)}
+          disabled={!editable} // Disable delete button in read-only mode
+        >
           <FaTrash />
         </button>
       </div>
@@ -123,6 +141,7 @@ export const CompanyOverview = ({
                   name="companycode"
                   value={companycode || ""}
                   onChange={handleInputChange}
+                  readOnly={!editable} // Make input readonly in read-only mode
                 />
               </label>
             </div>
@@ -137,6 +156,7 @@ export const CompanyOverview = ({
                   name="companyname"
                   value={companyname || ""}
                   onChange={handleInputChange}
+                  readOnly={!editable}
                 />
               </label>
             </div>
@@ -152,6 +172,7 @@ export const CompanyOverview = ({
                   placeholder="optional"
                   value={description || ""}
                   onChange={handleInputChange}
+                  readOnly={!editable}
                 />
               </label>
             </div>
@@ -164,6 +185,7 @@ export const CompanyOverview = ({
                   id="country"
                   value={country || ""}
                   onChange={handleInputChange}
+                  disabled={!editable} // Disable select in read-only mode
                 >
                   <option value="">Select Country</option>
                   {countries.map((country) => (
@@ -183,6 +205,7 @@ export const CompanyOverview = ({
                   id="currency"
                   value={currency || ""}
                   onChange={handleInputChange}
+                  disabled={!editable}
                 >
                   <option value="">Select Currency</option>
                   {currencies.map((currency) => (
@@ -203,6 +226,7 @@ export const CompanyOverview = ({
                   id="address01"
                   value={address01 || ""}
                   onChange={handleInputChange}
+                  readOnly={!editable}
                 />
               </label>
             </div>
@@ -217,6 +241,7 @@ export const CompanyOverview = ({
                   placeholder="optional "
                   value={address02 || ""}
                   onChange={handleInputChange}
+                  readOnly={!editable}
                 />
               </label>
             </div>
@@ -229,6 +254,7 @@ export const CompanyOverview = ({
                   id="defaultCompany"
                   checked={defaultCompany}
                   onChange={handleInputChange}
+                  disabled={!editable} // Disable checkbox in read-only mode
                 />
                 Default Company
               </label>

@@ -3,14 +3,13 @@ import "./App.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import { Header } from "./Components/Header/Header";
-import { CreateCompany } from "./pages/company/CreateCompany";
-import { Home } from "./pages/company/Home";
-import { CompanyOverview } from "./pages/company/CompanyOverview";
-import { NoAccessCompanyOverview } from "./pages/company/NoAccessCompanyOverview";
+import { CreateCompany } from "./pages/CreateCompany";
+import { Home } from "./pages/Home";
+import { CompanyOverview } from "./pages/CompanyOverview";
 import { ToastContainer } from "react-toastify";
-import { FaInfo, FaEdit, FaTrash, FaSave } from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FaInfo, FaEdit, FaTrash, FaSave } from "react-icons/fa"; // Added imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Added import
+import { faPlus } from "@fortawesome/free-solid-svg-icons"; // Added import
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -46,9 +45,9 @@ function App() {
             }
           ></Route>
           <Route
-            path="/NoAccessoverview/:id"
+            path="/overview"
             element={
-              <NoAccessCompanyOverview
+              <CompanyOverview
                 FaEdit={FaEdit}
                 FaTrash={FaTrash}
                 FaSave={FaSave}
@@ -66,4 +65,5 @@ function App() {
     </div>
   );
 }
+
 export default App;

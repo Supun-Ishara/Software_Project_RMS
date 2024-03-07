@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import { deleteUser, loadUsers } from "../../store/Action";
+import { deleteUser, loadUsers } from "../store/Action";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,14 +31,6 @@ export const Home = ({ FaInfo, FaEdit, FaTrash, FontAwesomeIcon, faPlus }) => {
           </div>
         </div>
 
-        {/* <div className='search-bar'>
-          <input
-            type='text'
-            placeholder='Search by Company Code'
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}/>
-        </div> */}
-
         <div className="table-container">
           <table className="main-table">
             <thead>
@@ -57,15 +48,19 @@ export const Home = ({ FaInfo, FaEdit, FaTrash, FontAwesomeIcon, faPlus }) => {
                   <tr key={user.id}>
                     <td>
                       <Link
-                        to={`/NoAccessoverview/${user.id}`}
+                        to={`/overview/${user.id}`}
                         className="btn-btn-sm-btn-info-me-2"
                       >
                         <FaInfo />{" "}
                       </Link>
 
-                      <Link to={`/overview/${user.id}`} className="btn">
+                      <Link
+                        to={`/overview/${user.id}?edit=true`}
+                        className="btn"
+                      >
                         <FaEdit />
                       </Link>
+
                       <button
                         className="btn-delete"
                         onClick={() => handleDelete(user.id)}

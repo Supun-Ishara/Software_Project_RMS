@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCountries, fetchCurrencies, addUser } from "../../store/Action";
+import { fetchCountries, fetchCurrencies, addUser } from "../store/Action";
 
 export const CreateCompany = () => {
   const [state, setState] = useState({
