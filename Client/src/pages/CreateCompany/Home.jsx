@@ -1,74 +1,98 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { FaInfo, FaEdit, FaTrash } from 'react-icons/fa';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons'; 
-import { deleteUser, loadUsers } from '../../store/Action';
-import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+// import { FaInfo, FaEdit, FaTrash } from "react-icons/fa";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { deleteUser, loadUsers } from "../../store/Action";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+//import {filteredUsers}
 
-    export const Home = () => {
-        let dispatch = useDispatch(); 
-        const { users } =useSelector(state => state.data)
+export const Home = ({ FaInfo, FaEdit, FaTrash, FontAwesomeIcon, faPlus }) => {
+  let dispatch = useDispatch();
+  const { users } = useSelector((state) => state.data);
+//   const { FaInfo, FaEdit, FaTrash, FontAwesomeIcon, faPlus } = iconSet;
 
-        useEffect(() =>{
-            dispatch(loadUsers());
-        }, [])
+  useEffect(() => {
+    dispatch(loadUsers());
+  }, []);
 
-    const handleDelete = (id) => {
-        if(window.confirm("Would you like to delete?")){
-            dispatch(deleteUser(id))
-        toast.success('Çompany delete successfully.')
-        }
-    };
+  const handleDelete = (id) => {
+    if (window.confirm("Would you like to delete?")) {
+      dispatch(deleteUser(id));
+      toast.success("Çompany delete successfully.");
+    }
+  };
 
+  //     const filteredUsers = users.filter((user) =>
+  //     user.companycode.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
 
   return (
-    <div className='Table1'>
-        <div className='table2'>
-            <div className='table-name'>
-        Companies
-        <div className='buttons-container1'>
-        <Link to="/create" className='btn-btn-success'>
-    <FontAwesomeIcon icon={faPlus} className="me-1" />
-</Link>
-</div>
-</div>
+    <div className="Table1">
+      <div className="table2">
+        <div className="table-name">
+          Companies
+          <div className="buttons-container1">
+            <Link to="/create" className="btn-btn-success">
+              <FontAwesomeIcon icon={faPlus} className="me-1" />
+            </Link>
+          </div>
+        </div>
 
-<div className="table-container">
-<table className='main-table'>
-    <thead>
-        <tr>
-        <th></th>
-            <th>CompanyCode</th>
-            <th>CompanyName</th>
-            <th>Country</th>
-            <th>Currency</th>    
-        </tr>
-    </thead>
-    <tbody>
-        {
-            users && users.map((user) => (
-                <tr key={user.id}>
-                    <td>      
-                    <Link to={`/read/${user.id}`} className='btn-btn-sm-btn-info-me-2'><FaInfo /> </Link> 
-                    <Link to={`/overview/${user.id}`} className='btn'><FaEdit /></Link>
-                    <button className='btn-delete' onClick={() => handleDelete(user.id)}><FaTrash /></button>
+        {/* <div className='search-bar'>
+          <input
+            type='text'
+            placeholder='Search by Company Code'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}/>
+        </div> */}
+
+        <div className="table-container">
+          <table className="main-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>CompanyCode</th>
+                <th>CompanyName</th>
+                <th>Country</th>
+                <th>Currency</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users &&
+                users.map((user) => (
+                  <tr key={user.id}>
+                    <td>
+                      <Link
+                        to={`/NoAccessoverview/${user.id}`}
+                        className="btn-btn-sm-btn-info-me-2"
+                      >
+                        <FaInfo />{" "}
+                      </Link>
+
+                      <Link to={`/overview/${user.id}`} className="btn">
+                        <FaEdit />
+                      </Link>
+                      <button
+                        className="btn-delete"
+                        onClick={() => handleDelete(user.id)}
+                      >
+                        <FaTrash />
+                      </button>
                     </td>
                     <td>{user.companycode}</td>
                     <td>{user.companyname}</td>
                     <td>{user.country}</td>
-                    <td>{user.currency}</td>      
-                </tr>
-            ))
-        }
-    </tbody>
-</table>
-</div>
+                    <td>{user.currency}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         </div>
-        </div>
+      </div>
+    </div>
   );
-
-}
+};
 
 export default Home;

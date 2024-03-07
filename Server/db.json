@@ -12,7 +12,7 @@
       "id": "51e7"
     },
     {
-      "companycode": "4",
+      "companycode": "51",
       "companyname": "ABC2",
       "description": "This is a CRUD_2",
       "country": "USA",
@@ -34,7 +34,7 @@
       "id": "ac59"
     },
     {
-      "companycode": "4",
+      "companycode": "44",
       "companyname": "ABC4",
       "description": "This is a CRUD_4",
       "country": "USA",
@@ -46,11 +46,11 @@
     },
     {
       "id": "6792",
-      "companycode": "43",
+      "companycode": "435",
       "companyname": "MyCompany",
       "description": "My project",
       "country": "United Kingdom",
-      "currency": "SLR",
+      "currency": "AUD",
       "address01": "Colombo 2",
       "address02": "Kandy",
       "defaultCompany": false
@@ -64,17 +64,6 @@
       "currency": "USD",
       "address01": "ghg",
       "address02": "nh",
-      "defaultCompany": "false"
-    },
-    {
-      "id": "30b8",
-      "companycode": "df",
-      "companyname": "scsc",
-      "description": "ccv",
-      "country": "Australia",
-      "currency": "EUR",
-      "address01": "sd",
-      "address02": "d",
       "defaultCompany": "false"
     }
   ],
