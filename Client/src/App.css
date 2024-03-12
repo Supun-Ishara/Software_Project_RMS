@@ -218,6 +218,24 @@ body {
   justify-content: space-between;
 }
 
+.search-bar {
+  margin-bottom: 3px;
+}
+
+.search-bar input[type="text"] {
+  width: 250px;
+  padding: 3px;
+  border: 1px solid #8b6e4a;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.search-bar input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
 .btn-btn-sm-btn-info-me-2 {
   margin-left: 15px;
   padding-right: 25px;
