@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
-import { Header } from "./Components/Header/Header";
+import {Navbar} from "./components/navbar/Navbar";
+import { Header } from "./components/header/Header";
 import { CreateCompany } from "./pages/CreateCompany";
 import { Home } from "./pages/Home";
 import { CompanyOverview } from "./pages/CompanyOverview";

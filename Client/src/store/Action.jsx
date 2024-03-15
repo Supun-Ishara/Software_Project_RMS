@@ -1,56 +1,65 @@
 import axios from "axios";
-import * as types from "./ActionType";
 
-const getUsers = (users) => ({
-  type: types.GET_USERS,
+export const GET_USERS = "GET_USERS";
+export const DELETE_USER = "DELETE_USER";
+export const ADD_USER = "ADD_USER";
+export const UPDATE_USER = "UPDATE_USER";
+export const GET_USER_OBJ = "GET_USER_OBJ";
+export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
+export const FETCH_COUNTRIES_SUCCESS = "FETCH_COUNTRIES_SUCCESS";
+export const FETCH_CURRENCIES_SUCCESS = "FETCH_CURRENCIES_SUCCESS";
+export const FETCH_FAILURE = "FETCH_FAILURE";
+
+
+export const getUsers = (users) => ({
+  type: GET_USERS,
   payload: users,
 });
 
-const userDeleted = () => ({
-  type: types.DELETE_USER,
+export const userDeleted = () => ({
+  type: DELETE_USER,
 });
 
-const userAdded = () => ({
-  type: types.ADD_USER,
+export const userAdded = () => ({
+  type: ADD_USER,
 });
 
-const userUpdated = (user) => ({
-  type: types.UPDATE_USER,
+export const userUpdated = (user) => ({
+  type: UPDATE_USER,
   payload: user,
 });
 
-const userGetObj = () => ({
-  type: types.GET_USER_OBJ,
+export const userGetObj = () => ({
+  type: GET_USER_OBJ,
 });
 
-/* Read */
-const userFetchedData = (users) => ({
-  type: types.FETCH_DATA_SUCCESS,
+export const userFetchedData = (users) => ({
+  type: FETCH_DATA_SUCCESS,
   payload: users,
 });
 
-/* Read */
-
-/*country & currency */
-
 export const fetchCountriesSuccess = (countries) => ({
-  type: types.FETCH_COUNTRIES_SUCCESS,
+  type: FETCH_COUNTRIES_SUCCESS,
   payload: countries,
 });
 
 export const fetchCurrenciesSuccess = (currencies) => ({
-  type: types.FETCH_CURRENCIES_SUCCESS,
+  type: FETCH_CURRENCIES_SUCCESS,
   payload: currencies,
 });
-/*country & currency */
+
+export const fetchFailure = (error) => ({
+  type: FETCH_FAILURE,
+  payload: error,
+});
 
 export const loadUsers = () => {
   return function (dispatch) {
     axios.get(`${process.env.REACT_APP_API}`).then((resp) => {
-      // console.log("resp", resp);
       dispatch(getUsers(resp.data));
     })
-     .catch((error) => console.log(error));
+    .catch((error) => {dispatch(fetchFailure(error));
+    });
   };
 };
 
@@ -59,11 +68,11 @@ export const deleteUser = (id) => {
     axios
       .delete(`${process.env.REACT_APP_API}/${id}`)
       .then((resp) => {
-       // console.log("resp", resp);
         dispatch(userDeleted());
         dispatch(loadUsers());
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {dispatch(fetchFailure(error));
+      });
   };
 };
 
@@ -72,11 +81,11 @@ export const addUser = (user) => {
     axios
       .post(`${process.env.REACT_APP_API}`, user)
       .then((resp) => {
-       // console.log("resp", resp);
         dispatch(userAdded());
         dispatch(loadUsers());
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {dispatch(fetchFailure(error));
+      });
   };
 };
 
@@ -85,10 +94,10 @@ export const updateUser = (id) => {
     axios
       .get(`${process.env.REACT_APP_API}/${id}`)
       .then((resp) => {
-      //  console.log("resp", resp);
         dispatch(userUpdated(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {dispatch(fetchFailure(error));
+      });
   };
 };
 
@@ -97,10 +106,10 @@ export const getUserObj = (user, id) => {
     axios
       .put(`${process.env.REACT_APP_API}/${id}`, user)
       .then((resp) => {
-      //  console.log("resp", resp);
         dispatch(userGetObj());
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {dispatch(fetchFailure(error));
+      });
   };
 };
 
@@ -109,14 +118,13 @@ export const fetchDataSuccess = (id) => {
     axios
       .get(`${process.env.REACT_APP_API}/${id}`)
       .then((resp) => {
-      //  console.log("resp", resp);
         dispatch(userFetchedData(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {dispatch(fetchFailure(error));
+      });
   };
 };
 
-/*country & currency */
 export const fetchCountries = () => {
   return function (dispatch) {
     axios
@@ -124,7 +132,8 @@ export const fetchCountries = () => {
       .then((response) => {
         dispatch(fetchCountriesSuccess(response.data));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {dispatch(fetchFailure(error));
+      });
   };
 };
 
@@ -135,7 +144,7 @@ export const fetchCurrencies = () => {
       .then((response) => {
         dispatch(fetchCurrenciesSuccess(response.data));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {dispatch(fetchFailure(error));
+      });
   };
 };
-/*country & currency */
